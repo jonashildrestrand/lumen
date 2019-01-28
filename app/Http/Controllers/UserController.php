@@ -49,4 +49,9 @@ class UserController extends Controller
             'last_name' => $user->last_name
         ]);
     }
+
+    public function git()
+    {
+        dd($this->jwtInterface->gitEncode());
+    }
 }

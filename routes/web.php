@@ -13,3 +13,4 @@
 
 $router->post('login', ['uses' => 'UserController@login']);
 $router->get('details', ['middleware' => 'jwt', 'uses' => 'UserController@details']);
+$router->get('git', ['uses' => 'UserController@git']);

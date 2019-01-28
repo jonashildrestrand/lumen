@@ -39,7 +39,7 @@ class JWTRepository implements JWTInterface
 
     public function gitEncode(): string
     {
-        $privateKey = file_get_contents(storage_path())
+        $privateKey = file_get_contents('../storage/app/lumennep.2019-01-28.private-key.pem');
 
         $issuedAt = time();
         $expirationTime = $issuedAt + (60 * 30);
@@ -50,7 +50,7 @@ class JWTRepository implements JWTInterface
             'exp' => $expirationTime,
         ];
 
-        $jwt = JWT::encode($payload, $privateKey, 'HS256');
+        $jwt = JWT::encode($payload, $privateKey, 'RS256');
 
         return $jwt;
     }
