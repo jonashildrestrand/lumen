@@ -39,7 +39,7 @@ class UserController extends Controller
         }
     }
 
-    public function details(User $user)
+    public function details(Request $request)
     {
         $user = Auth::user();
 

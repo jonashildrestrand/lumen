@@ -36,4 +36,22 @@ class JWTRepository implements JWTInterface
 
         return $user;
     }
+
+    public function gitEncode(): string
+    {
+        $privateKey = file_get_contents(storage_path())
+
+        $issuedAt = time();
+        $expirationTime = $issuedAt + (60 * 30);
+
+        $payload = [
+            'iss' => 'Lumen',
+            'iat' => $issuedAt,
+            'exp' => $expirationTime,
+        ];
+
+        $jwt = JWT::encode($payload, $privateKey, 'HS256');
+
+        return $jwt;
+    }
 }
